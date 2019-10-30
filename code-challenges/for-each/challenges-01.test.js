@@ -137,25 +137,24 @@ Return the resulting output array.
 ------------------------------------------------------------------------------------------------ */
 
 const fizzbuzz = (arr) => {
-  arr.forEach(val => arr) {
-    // if (arr[i] % 3 == 0) {
-    //   // arr[i] = 'Fizz';
-    //   arr.splice(arr[i], 1, 'Fizz');
-    //   arr.push(arr[i]);
-    // }
-    // else if (arr[i] % 5 == 0) {
-    //   // arr[i] = 'Buzz';
-    //   arr.splice(arr[i], 1, 'Buzz');
-    //   arr.push(arr[i]);
-    // }
-    // else if (arr[i] % 5 == 0 && arr[i] % 3 == 0) {
-    //   // arr[i] = 'Fizz Buzz';
-    //   arr.splice(arr[i], 1, 'Fizz Buzz');
-    //   arr.push(arr[i]);
-    // }
-    // else {
-    //   arr.push(arr[i]);
-    // }
+  arr.forEach(function() {
+  for (let i = 0; i < 16; i++) {
+    if (arr[i] % 5 === 0 && arr[i] % 3 === 0) {
+      arr[i] = 'Fizz Buzz';
+      // arr.splice(arr[i], 1, 'Fizz Buzz');
+      // arr.push(arr[i]);
+    } else if (arr[i] % 3 === 0) {
+      arr[i] = 'Fizz';
+      // arr.splice(arr[i], 1, 'Fizz');
+      // arr.push(arr[i]);
+    } else if (arr[i] % 5 === 0) {
+      arr[i] = 'Buzz';
+      // arr.splice(arr[i], 1, 'Buzz');
+      // arr.push(arr[i]);
+    } else {
+      arr.push(i);
+    }
+    }
   }
   return arr;
 };
