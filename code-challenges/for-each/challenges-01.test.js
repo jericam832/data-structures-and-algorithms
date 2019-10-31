@@ -90,10 +90,10 @@ This anonymous function should accept up to three arguments: the element, the in
 ------------------------------------------------------------------------------------------------ */
 
 const removeWithAnon = (arr) => {
-  ( function(){
-    arr.forEach(callback(val, arr));
-  });
-  return arr;
+  // ( function(){
+  //   arr.forEach(callback(val, arr));
+  // });
+  // return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -114,11 +114,11 @@ This function should use forEach to populate your grocery list based on the stor
 ------------------------------------------------------------------------------------------------ */
 
 const createList = (availableItems) => {
-  for(let i = 0; i < availableItems.length; i++) {
-    if (availableItems[i].available === true) {
-      availableItems.push(availableItems[i].name);
+  availableItems.forEach( item => {
+    if (item['available'] === true) {
+      availableItems.push(this.name);
     }
-  }
+  })
   return availableItems;
 };
 
@@ -137,25 +137,16 @@ Return the resulting output array.
 ------------------------------------------------------------------------------------------------ */
 
 const fizzbuzz = (arr) => {
-  arr.forEach(function() {
-  for (let i = 0; i < 16; i++) {
-    if (arr[i] % 5 === 0 && arr[i] % 3 === 0) {
-      arr[i] = 'Fizz Buzz';
-      // arr.splice(arr[i], 1, 'Fizz Buzz');
-      // arr.push(arr[i]);
-    } else if (arr[i] % 3 === 0) {
-      arr[i] = 'Fizz';
-      // arr.splice(arr[i], 1, 'Fizz');
-      // arr.push(arr[i]);
-    } else if (arr[i] % 5 === 0) {
-      arr[i] = 'Buzz';
-      // arr.splice(arr[i], 1, 'Buzz');
-      // arr.push(arr[i]);
-    } else {
-      arr.push(i);
+  arr.forEach( (value,idx) => {
+    if (value % 5 === 0 && value % 3 === 0) {
+      value = 'Fizz Buzz';
+      arr.splice(idx, 1, 'Fizz Buzz');
+    } else if (value % 3 === 0) {
+      arr.splice(idx, 1, 'Fizz');
+    } else if (value % 5 === 0) {
+      arr.splice(idx, 1, 'Buzz');
     }
-    }
-  }
+  })
   return arr;
 };
 
