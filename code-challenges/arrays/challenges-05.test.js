@@ -11,7 +11,11 @@ For example, if the input is 'Welcome', the output will be:
 
 const howMuchPencil = (str) => {
   let result = [];
-  // Solution code here...
+  let count = 0;
+  for (let i = 0; i <= str.length; i++) {
+    let newWord = str.slice(count++);
+    result.push(newWord);
+  }
   return result;
 };
 
@@ -22,7 +26,8 @@ For example, wordsToCharList('gregor') returns ['g','r','e','g','o','r'].
 ------------------------------------------------------------------------------------------------ */
 
 const wordsToCharList = (arr) => {
-  // Solution code here...
+  let newArr = arr.split('');
+  return newArr;
 };
 
 
@@ -65,7 +70,9 @@ const gruffaloCrumble = {
 
 const listFoods = (recipe) => {
   let result = [];
-  // Solution code here...
+  // recipe.forEach( ingredient => {
+  //   let ingredient = recipe.spl
+  // })
   return result;
 };
 
@@ -77,7 +84,11 @@ You may also use other string or array methods.
 
 const splitFoods = (recipe) => {
   let result = [];
-  // Solution code here...
+  for( let i = 0; i< recipe.ingredients.length; i++) {
+    let product = recipe.ingredients[i].split(' ');
+    let remove = product.slice(2);
+    result.push(remove.join(" "));
+  }
   return result;
 };
 
@@ -90,7 +101,11 @@ Return a new array containing just the verbs. For example, ['Mix until evenly di
 
 const stepActions = (recipe) => {
   let result = [];
-  // Solution code here...
+  for (let i = 0; i < recipe.steps.length; i++) {
+    let action = recipe.steps[i].split(' ');
+    let word = action[0];
+    result.push(word);
+  }
   return result;
 };
 
@@ -105,7 +120,13 @@ For example:
 ------------------------------------------------------------------------------------------------ */
 
 const removeEvenValues = (arr) => {
-  // Solution code here...
+  //This solution works in repl, but not on my machine.
+  // for(let i = arr.length - 1; i >= 0; i++) {
+  //   if (arr[i] % 2 == 0) {
+  //     arr.splice(i, 1); 
+  //   }
+  // }
+  // return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
