@@ -127,14 +127,20 @@ Write a function named totalCharacters that takes in an array and returns the nu
 ------------------------------------------------------------------------------------------------ */
 
 const totalCharacters = (arr) => {
-  let members = [];
+  let people = 0;
   for (let i = 0; i < arr.length; i++) {
     let person = arr[i].name;
-    arr[i].children.push(person)
+    let spouse = arr[i].spouse;
+    if(spouse !== null && arr[i].children !== [] ) {
+      arr[i].children.push(spouse);
+      arr[i].children.push(person);
+    } else {
+      arr[i].children.push(person);
+    }
     let child = arr[i].children.length;
-    members.push(child);
+    people += child;
   }
-  return members;
+  return people;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -149,7 +155,11 @@ For example: [{ house: 'Stark', members: 7 }, { house: 'Arryn', members: 3 }, ..
 
 const houseSize = (arr) => {
   const sizes = [];
-  // Solution code here...
+  for (let i = 0; i < arr.length; i++) {
+    let child = arr[i].children.length;
+    let houseTotals = { "house": arr[i].house, "members": child };
+    sizes.push(houseTotals);
+  }
   return sizes;
 };
 
@@ -173,7 +183,15 @@ const deceasedSpouses = ['Catelyn', 'Lysa', 'Robert', 'Khal Drogo', 'Alerie'];
 
 const houseSurvivors = (arr) => {
   const survivors = [];
-  // Solution code here...
+  for (let i = 0; i < arr.length; i++) {
+    
+    let houseAlive = arr[i].children.length;
+    if (deceasedSpouses.includes(arr[i].spouse)) {
+      houseAlive = houseAlive - 1;
+    }
+    let houseTotals = { "house": arr[i].house, "members": houseAlive };
+    survivors.push(houseTotals);
+  }
   return survivors;
 };
 
