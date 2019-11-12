@@ -62,8 +62,19 @@ For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 
 const divisibleByFiveTwoToThePower = (input) => {
   // Solution code here...
-  //huh?
+  let newArr = [];
+  let sum = input.reduce((acc, value, idx) => {
+    let numberNot = [];
+    let result = value.map(x => {
+      if (x % 5 === 0 && typeof x === 'number') {
+        numberNot.push(Math.pow(2, x));
+      }
+    });
+    return newArr.push(numberNot);
+  }, []);
+  return newArr;
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -128,8 +139,13 @@ let starWarsData = [{
 }];
 
 let findMaleAndFemale = (data) => {
-  // Solution code here...
-  //use if(!something)...
+  let names = [];
+  let result = data.filter(person => {
+    if (person.gender === 'male' || person.gender === 'female') {
+      names.push(person.name);
+    }
+  });
+  return names.join(' and ');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -139,8 +155,16 @@ Write a function named findShortest that, given the Star Wars data from Challeng
 ------------------------------------------------------------------------------------------------ */
 
 let findShortest = (data) => {
-  // Solution code here...
-  //find the shortest and return their name;
+  let characters = [];
+  let result = data.filter(person => {
+    characters.push({ 'name': person.name, 'height': person.height });
+  });
+  let sortedCharacters = characters.sort((a, b) => a.height - b.height);
+  //It can also be done by just sorting the array of characters by their height
+  // let sorted = data.sort((a, b) => a.height - b.height);
+  // return sorted[0].name;
+
+  return sortedCharacters[0].name;
 };
 
 /* ------------------------------------------------------------------------------------------------
