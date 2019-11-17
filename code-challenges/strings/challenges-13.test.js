@@ -9,9 +9,13 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['t', 
 ------------------------------------------------------------------------------------------------ */
 
 const firstLetters = (arr) => {
-  // Solution code here...
-  //Working on submitting this
+  let newArr = [];
+  let first = arr.forEach(word => {
+    newArr.push(word.charAt(0))
+  });
+  return newArr;
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -22,7 +26,13 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['this
 ------------------------------------------------------------------------------------------------ */
 
 const findHappiness = (arr) => {
-  // Solution code here...
+  let newArr = [];
+  let smile = arr.forEach(word => {
+    if (word.includes(':)')) {
+      newArr.push(word)
+    }
+  });
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -34,7 +44,19 @@ For example, (123) 456-7890 returns 1234567890
 ------------------------------------------------------------------------------------------------ */
 
 const standardizePhoneNumbers = (arr) => {
-  // Solution code here...
+  let newArr = [];
+  let newNum = arr.forEach(number => {
+    let phone = [];
+    let split = number.split('');
+    let regex = /[0-9]/;
+    split.forEach(num => {
+      if (regex.test(num)) {
+        phone.push(num)
+      }
+    })
+    newArr.push(phone.join(''));
+  });
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -46,8 +68,11 @@ For example, 'abcdefg' returns 'bdf'
 ------------------------------------------------------------------------------------------------ */
 
 const onlyOddChars = (str) => {
-  // Solution code here...
+  for (let i = 0; i < str.length; i++) {
+    return str.charAt(++i);
+  }
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -56,7 +81,15 @@ Write a function named allHappy that takes in an array of strings and returns a 
 ------------------------------------------------------------------------------------------------ */
 
 const allHappy = (arr) => {
-  // Solution code here...
+  // let newArr = [];
+  // let smile = arr.forEach(word => {
+    if (arr.includes(':)')) {
+      return true;
+    } else {
+      return false;
+    }
+  // });
+  // return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -66,7 +99,13 @@ Write a function named findAnything that takes in an array of strings, along wit
 ------------------------------------------------------------------------------------------------ */
 
 const findAnything = (arr, target) => {
-  // Solution code here...
+  let newArr = [];
+  let smile = arr.forEach(str => {
+    if (str.includes(target)) {
+      newArr.push(str)
+    }
+  });
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -76,7 +115,12 @@ Write a function named findEvery that takes in an array of strings, along with a
 ------------------------------------------------------------------------------------------------ */
 
 const findEvery = (arr, target) => {
-  // Solution code here...
+  const doesInclude = (currentValue) => currentValue.includes(target);
+    if (arr.every(doesInclude)) {
+      return true;
+    } else {
+      return false;
+    }
 };
 
 /* ------------------------------------------------------------------------------------------------
