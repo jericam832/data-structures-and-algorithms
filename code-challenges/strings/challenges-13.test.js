@@ -115,13 +115,12 @@ Write a function named findEvery that takes in an array of strings, along with a
 ------------------------------------------------------------------------------------------------ */
 
 const findEvery = (arr, target) => {
-  let letter = arr.forEach(str => {
-    if (str.includes(target)) {
+  const doesInclude = (currentValue) => currentValue.includes(target);
+    if (arr.every(doesInclude)) {
       return true;
     } else {
       return false;
     }
-  });
 };
 
 /* ------------------------------------------------------------------------------------------------
